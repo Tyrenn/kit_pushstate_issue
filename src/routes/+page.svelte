@@ -1,7 +1,6 @@
 <script>
-	import {pushState, replaceState} from '$app/navigation';
+	import {pushState} from '$app/navigation';
 	import { page } from '$app/stores';
-	import {onMount} from 'svelte';
 
 	let showSquare = false;
 
@@ -22,10 +21,6 @@
 	}
 
 	$ : onChangeState($page.state)
-
-	onMount(() => {
-
-	})
 </script>
 
 <svelte:head>
@@ -33,7 +28,7 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<svelte:window onpopstate={() => console.log('Popping state')} />
+<svelte:window on:popstate={() => console.log('Popping state')} />
 
 <section>
 	<button on:click={onShow}>Show Square</button>
